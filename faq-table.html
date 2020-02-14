@@ -1,0 +1,455 @@
+<head>
+<style>
+
+body{
+  color: #fff;
+  background-color: #000;
+  font-family: Arial,Helvetica,sans-serif;
+}
+div.box {}
+
+.inner {text-transform:capitalize}
+.odd{ background:#f0f0f0}
+
+.row-1 {}
+
+.trigger {
+    background: none repeat scroll 0 0 #F2F5F9;
+    border: 1px solid #DDD;
+    box-shadow: 0 0 0 1px #FFFFFF;
+    color: #777777;
+    cursor: pointer;
+    display: block;
+    font-size: 19px;
+    height: 30px;
+    line-height: 33px;
+    padding: 5px 20px;
+    position: relative;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+    z-index: 10;
+    
+    margin-bottom:2px;
+    width:620px;
+    clear:right;
+}
+.trigger.active{
+    color: #3D7489;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+.trigger a{    display:block;
+    color:#666;
+    text-decoration:none;
+      text-shadow: 0 0 3px #FFFFFF;
+          }
+.trigger.active a{    background:url("images/arrows-sprite.png") no-repeat scroll right -60px transparent; }
+.trigger a:hover{background:url("images/arrows-sprite.png") no-repeat scroll right -60px transparent;    }
+.trigger.active a:hover{background:url("images/arrows-sprite.png") no-repeat scroll right -97px transparent;    }
+    
+.toggle_container{    
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #DDDDDD;
+    border-left: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    box-shadow: 0 1px 0 1px #FFFFFF;
+    margin: -2px 0 2px 0px;
+    overflow: hidden;
+    padding: 5px 20px;
+    position: relative;
+    width: 620px;
+    z-index: 20;
+    clear:right;
+    
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  background-color: #578b9e;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  display: block;
+  overflow: hidden;
+}
+
+.filter {
+  padding: 0 18 5 18px;
+  display: block;
+  overflow: hidden;
+  font-style: italic;
+  color: #ccc;
+}
+
+.ans {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+}
+</style>
+</head>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
+<table id="yourTable">
+  <tr class = "ques">
+    <td class="accordion">Do we HAVE to grant the nominator's wish?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      Do what is best for the family.
+    </td>
+    <td class="filter">
+      Life Changing Gift, Nominator
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">Is there a cash receipt to use for people who want it?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      If you enter their donation on Kindful with their email address, they will get emailed a receipt.
+    </td>
+    <td class="filter">
+      Kindful, Donations, Receipts
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">How long does it take to be reimbursed?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      Typically 7-10 business days.
+    </td>
+    <td class="filter">
+      Reimbursement
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">Can Kindful donations be anonymous?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      Yes, they are anonymous by default. If they want their name to be displayed, they have to check a box. 
+    </td>
+    <td class="filter">
+      Kindful, Donations
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">How long can Kindful pages be open for donations?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      Kindful pages can be open through December 31.
+    </td>
+    <td class="filter">
+      Kindful, Donations
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">What is the latest date a cash donation can be made?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      Wrapping Party date
+    </td>
+    <td class="filter">
+      Donations
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">My nominator doesn't live in the same area as my family; what do I do for the Drop?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      If the nominator cannot make the Drop, you can have them read their nomination through speaker phone or read it on their behalf. 
+    </td>
+    <td class="filter">
+      Drop, Nominator
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">Can the Drop happen somewhere other than the family's home?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      Yes.
+    </td>
+    <td class="filter">
+      Drop
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">How do I get into my personal Kindful account to enter a pledge?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      Ensure you're not on the public page, then click on the drop down menu (3 horizontal bars) and select "Enter Pledge"
+    </td>
+    <td class="filter">
+      Kindful, Donations
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">What paperwork do I need to give to a business if they plan on donating a large monetary lump sum?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      If they donate via Kindful, they will receive their donation letter immediately. If they donate via check, they won't receive their donation letter until the last week of January.
+    </td>
+    <td class="filter">
+      Kindful, Donations, Business Partner
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">What do I do with money I raised at an event?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      You can enter it as a pledge on Kindful, and mail a check to BCE PO Box 439. Cloquet, MN 55720. Include your name in the envelope and make a note that you already entered it as a pledge.
+    </td>
+    <td class="filter">
+      Kindful, Donations
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">Can a name on a Kindful donation be changed after it has been processed?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      Yes. Please contact a BCE Team or Board Member.
+    </td>
+    <td class="filter">
+      Kindful, Donations
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">How do I set up a QR code for my Kindful page?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      Use your Kindful link and run it through a QR code generator (easily found by Googling "QR Code Generator").
+    </td>
+    <td class="filter">
+      Kindful
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">Can you put a donation jar at the counter of a business?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      No, instead of a donation jar, you can put up a QR code to your Kindful page.
+    </td>
+    <td class="filter">
+      Donations, Business Partner
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">What information about BCE do you give to businesses to post?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      Put an answer here
+    </td>
+    <td class="filter">
+      Publicity, Business Partner
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">Can we accept used items (clothes, books, toys)?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      Yes, provided they are in good condition.
+    </td>
+    <td class="filter">
+      Gifts
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">Can we submit more than one reimbursement form?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      Yes, but ideally you only submit a single reimbursement form with all of your expenses on it.
+    </td>
+    <td class="filter">
+      Reimbursement
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">How can I ensure that the Kindful money goes to the designated Life Changing Gift(s)?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      BCE directly pays for the Life Changing Gift(s). For example, if the Life Changing Gift is a rent/mortgage payment, you would need to send a copy of their bill/invoice directly to BCE. The funds are not simply disbursed to the family to spend as they want. 
+    </td>
+    <td class="filter">
+      Kindful, Life Changing Gift
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">Are Captains supposed to provide trees and decorations for our business partners?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      No; the expectation needs to be set up by the Captain on who is responsible for the tree and its decorations. It is a business partnership.
+    </td>
+    <td class="filter">
+      Publicity, Business Partner
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">Should an estimated price of the gift be included on the gift tree tags?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      No.
+    </td>
+    <td class="filter">
+      Gift Tree
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">Is the $5000 used to purchase the Life Changing Gift or is it $5000 + Gifts + Life Changing Gift?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      The $5000 is used to purchase the Life Changing Gift.
+    </td>
+    <td class="filter">
+      Life Changing Gift
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">My employer does a company match on non-profit donations. Does their match money go to the Kindful account?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      This may vary depending on your company. Typically the company will send the matched funds directly to BCE.
+    </td>
+    <td class="filter">
+      Kindful, Employer Match
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">How are checks handled?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      The donor should write the check out to Best Christmas Ever. It should be mailed to BCE PO Box 439. Cloquet, MN 55720 by either the donor or the Captain. Have the donor include their email address (so BCE can email them a donation slip) and they include the Captain's name or Team name. Captains can manually input the donation into their Kindful account, or have Stephanie do it. If the Captains do it themselves, they should let Stephanie know so that the money doesn't get "double-dipped."
+    </td>
+    <td class="filter">
+      Kindful, Donations
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">Can nominations/families by saved or reserved for a Captain?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      No, families cannot be reserved for a specific Captain.
+    </td>
+    <td class="filter">
+      Nomination
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">Can I do an electronic/online gift list?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      Yes. Wishlists on Amazon are a good resource in addition to the physical gift tree tags.
+    </td>
+    <td class="filter">
+      Gift Tree
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">Can I have more than one gift tree?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      No.
+    </td>
+    <td class="filter">
+      Gift Tree
+    <td>
+  </tr>
+  <tr class = "ques">
+    <td class="accordion">Can I have more than one business partner/sponsor?</td>
+  </tr>
+  <tr class = "ans">
+    <td class="panel">
+      No.
+    </td>
+    <td class="filter">
+      Business Partner
+    <td>
+  </tr>                                                     
+</table>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.trim().toUpperCase();
+  table = document.getElementById("yourTable");
+  tr = table.getElementsByTagName("tr");
+  
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i = i+2) {
+    // td = tr[i].getElementsByTagName("td")[0];
+    td = tr[i].getElementsByTagName("td");
+    tdans = tr[i+1].getElementsByTagName("td");
+    if (td) {
+      txtValue = td[0].textContent || td[0].innerText;
+      panelValue = tdans[0].textContent || tdans[0].innerText;
+      filterValue = tdans[1].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1 || panelValue.toUpperCase().indexOf(filter) > -1 || filterValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+        tr[i+1].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+        tr[i+1].style.display = "none";
+      }
+    }
+  }
+}
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var ans = this.parentNode.nextElementSibling;
+    if (ans.style.display === "block") {
+      ans.style.display = "none";
+    } else {
+      ans.style.display = "block";
+    }
+  });
+}
+</script>
